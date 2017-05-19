@@ -50,6 +50,14 @@ module.exports = {
 				test: /\.scss$/,
 				include: [helpers.root('src', 'app')],
 				loaders: ['raw-loader', 'sass-loader?outputStyle=compressed&sourceComments=false']
+			},
+			{
+				test: /\.css$/,
+				exclude: [helpers.root('src', 'app')],
+				loaders: ExtractTextPlugin.extract({
+					fallbackLoader: "style-loader",
+					loader: "css-loader?sourceMap"
+				})
 			}
 		]
 	},

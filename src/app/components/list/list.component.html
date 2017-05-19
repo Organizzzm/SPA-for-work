@@ -1,0 +1,13 @@
+<div class="card-container">
+    <md-list-item *ngFor="let item of list">
+        <md-card class="card">
+            <h4 class="card__title">{{item.name}}</h4>
+            <span>{{item.date | date}}</span>
+            <p class="chart">
+                <svg viewBox="-1 -1 2 2" [pie-chart]="item.percent" style="transform: rotate(-90deg)"></svg>
+                <span class="chart__percent">{{item.percent}}%</span>
+            </p>
+            <md-icon class="remove-icon">clear</md-icon>
+        </md-card>
+    </md-list-item>
+</div>
