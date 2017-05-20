@@ -1,0 +1,43 @@
+.card-container{
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 100%;
+  margin: 5px 0;
+  box-sizing: border-box;
+  &__title{
+    font: bold 30px Roboto,"Helvetica Neue",sans-serif;
+    margin: 0;
+  }
+}
+
+.chart{
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  width: 50px;
+  height: 50px;
+  background: lightgray;
+  border-radius: 50%;
+  &__percent{
+    position: absolute;
+    top: 11px;
+    left: -60px;
+    font-size: 20px;
+  }
+}
+
+svg {
+  height: 50px;
+}
+
+.remove-icon{
+  color: red;
+  font-size: 30px;
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+}

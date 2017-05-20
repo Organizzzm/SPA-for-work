@@ -1,10 +1,22 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule }       from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
-    imports: [],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        FormsModule
+    ],
     declarations: [],
-    exports: [],
+    exports: [
+        BrowserAnimationsModule,
+        CommonModule,
+        FormsModule
+    ],
     providers: [],
 })
 
