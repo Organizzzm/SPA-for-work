@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { PieChartDirective } from './pie-chart.directive';
+
+import { ListService } from '../components/list/list.service';
+
 import {
     MdInputModule,
     MdDatepickerModule,
@@ -41,6 +44,7 @@ import {
         PieChartDirective
     ],
     providers: [
+        ListService
     ],
 })
 

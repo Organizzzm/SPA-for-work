@@ -1,43 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ListService } from './list.service';
+
+import { Skill } from './skill';
+
 @Component({
     selector: 'skills-list',
     templateUrl: 'list.component.html',
     styleUrls: ['list.component.scss']
 })
 export class ListComponent implements OnInit {
-    list: any;
+    list: Skill[];
 
-    constructor() {
+    constructor(private listService: ListService) {
     }
 
     ngOnInit() {
-        this.list = [
-            {
-                name: 'JavaScript',
-                date: '3325325',
-                percent: '10'
-            },
-            {
-                name: 'JavaScript',
-                date: '3325325',
-                percent: '80'
-            },
-            {
-                name: 'JavaScript',
-                date: '3325325',
-                percent: '100'
-            },
-            {
-                name: 'JavaScript',
-                date: '3325325',
-                percent: '35'
-            },
-            {
-                name: 'JavaScript',
-                date: '3325325',
-                percent: '19'
-            },
-        ];
+        this.listService.getSkills()
+            .subscribe(
+                skills => {
+                    this.list = skills;
+                    console.log(skills);
+                },
+                error => console.log(<any>error)
+            );
     }
 }

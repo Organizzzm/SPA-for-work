@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Skill } from '../list/skill';
+import { ListService } from '../list/list.service';
+
 @Component({
     selector: 'statistic-form',
     templateUrl: './statistic-form.component.html',
@@ -8,11 +11,17 @@ import { Component } from '@angular/core';
 
 export class StatisticFromComponent {
 
-    constructor() {
+    constructor(private listService: ListService) {
     }
 
-    addTechnology(value: any) {
-        console.log(value);
+    savePlayer(skill: Skill) {
+        if (skill) {
+            this.listService.insertSkill(skill)
+                .subscribe(
+                    insertedSkill => this.list.push(insertedSkill),
+                    error => console.log(error)
+                );
+        }
     }
 }
 

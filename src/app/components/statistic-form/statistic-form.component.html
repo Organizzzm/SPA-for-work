@@ -3,7 +3,7 @@
         <md-card-title>Add your skills</md-card-title>
     </md-card-header>
     <md-card-content class="content">
-        <form #technologyForm="ngForm" (ngSubmit)="addTechnology(technologyForm.value)">
+        <form #technologyForm="ngForm" (ngSubmit)="saveSkill(technologyForm.value)">
             <md-input-container class="example-full-width">
                 <input mdInput placeholder="Technology" [(ngModel)]="technology" name="technology" required
                        minlength="3">
