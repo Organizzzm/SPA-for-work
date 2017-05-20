@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const skillSchema = mongoose.Schema({
-	name: String,
+	technology: String,
 	date: Number,
-	percent: Number
+	skills: Number
 });
 
 const Skill = mongoose.model('Skill', skillSchema);

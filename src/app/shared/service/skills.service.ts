@@ -7,12 +7,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Skill } from './skill';
+import { Skill } from '../model/skill';
 
 @Injectable()
 export class ListService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private skillsUrl = '/skills';
+    private skillsUrl = '/api.v=0.1/skills';
 
     constructor(private http: Http) {}
 
@@ -26,6 +26,17 @@ export class ListService {
         return this.http.post(this.skillsUrl, JSON.stringify(skill), { headers: this.headers })
             .map(response => response.json() as Skill)
             .catch(this.handleError);
+    }
+
+    deleteSkill(skill: Skill): Observable<any> {
+        let updateUrl = `${this.skillsUrl}/${skill['_id']}`;
+        return this.http.delete(updateUrl)
+            .map(this.success)
+            .catch(this.handleError);
+    }
+
+    private success(): Observable<any> {
+        return Observable.create();
     }
 
     private handleError(response: Response): Observable<any> {

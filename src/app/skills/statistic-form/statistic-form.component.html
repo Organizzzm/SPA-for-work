@@ -3,19 +3,27 @@
         <md-card-title>Add your skills</md-card-title>
     </md-card-header>
     <md-card-content class="content">
-        <form #technologyForm="ngForm" (ngSubmit)="saveSkill(technologyForm.value)">
+        <form #technologyForm="ngForm">
             <md-input-container class="example-full-width">
-                <input mdInput placeholder="Technology" [(ngModel)]="technology" name="technology" required
+                <input mdInput
+                       placeholder="Technology"
+                       [(ngModel)]="technology"
+                       name="technology"
+                       required
                        minlength="3">
             </md-input-container>
 
             <md-input-container>
-                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" name="date"
+                <input mdInput
+                       [mdDatepicker]="picker"
+                       placeholder="Choose a date"
+                       [(ngModel)]="date"
+                       name="date"
                        required>
-                <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                <button mdSuffix
+                        [mdDatepickerToggle]="picker"></button>
             </md-input-container>
             <md-datepicker #picker></md-datepicker>
-
 
             <md-slider
                     class="slider"
@@ -27,7 +35,10 @@
                     [tick-interval]="10">
             </md-slider>
 
-            <button md-raised-button [disabled]="technologyForm.invalid">Add Skill</button>
+            <button md-raised-button
+                    [disabled]="technologyForm.invalid"
+                    (click)="saveSkill(technologyForm.value)">Add Skill
+            </button>
         </form>
     </md-card-content>
 </md-card>

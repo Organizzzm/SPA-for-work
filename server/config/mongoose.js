@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const skill = require('../model/skill');
+const skill = require('../model/skill.model');
 
 module.exports = function( config ){
 	mongoose.connect( config.db );

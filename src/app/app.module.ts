@@ -9,9 +9,9 @@ import { SharedModule } from './shared/shared.module';
 
 // Import components
 import { AppComponent } from './app.component';
-import { StatisticFromComponent } from './components/statistic-form/statistic-form.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { ListComponent } from './components/list/list.component';
+import { StatisticFromComponent } from './skills/statistic-form/statistic-form.component';
+import { FilterComponent } from './skills/filter/filter.component';
+import { ListComponent } from './skills/list/list.component';
 
 @NgModule({
     imports: [

@@ -1,4 +1,4 @@
-const skillsController = require('../controllers/skills');
+const skillsController = require('../controllers/skills.controller');
 
 module.exports = function (app, __dirname) {
 	/**
@@ -11,5 +11,7 @@ module.exports = function (app, __dirname) {
 	/**
 	 * API
 	 */
-	app.get('/skills', skillsController.getSkills);
+	app.get('/api.v=0.1/skills', skillsController.getSkills);
+	app.post('/api.v=0.1/skills', skillsController.addSkill);
+	app.delete('/api.v=0.1/skills/:id', skillsController.deleteSkill);
 };
