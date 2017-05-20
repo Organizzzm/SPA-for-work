@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Skill } from "../../shared/model/skill";
+
+import { ListService } from '../../shared/service/skills.service';
 
 @Component({
     selector: 'skills-filter',
@@ -6,17 +10,22 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./filter.component.scss']
 })
 
-export class FilterComponent implements OnInit {
-    filters: any;
+export class FilterComponent {
+    @Input() list: Skill[];
 
-    constructor() {
+    constructor(private listService: ListService) {
     }
 
-    ngOnInit() {
-        this.filters = [
-            'Day',
-            'Month',
-            'Year'
-        ];
+    filterSkills(date: string) {
+        this.listService.filteredSkills(Date.parse(date))
+            .subscribe(
+                skillsList => this.setSkillsToList(skillsList),
+                error => console.log(error)
+            );
+    }
+
+    private setSkillsToList(skillsList: Skill[]) {
+        this.list.splice(0, this.list.length);
+        this.list.push(...skillsList);
     }
 }

@@ -7,7 +7,6 @@ new WebpackDevServer(webpack(config), {
 	contentBase: __dirname,
 	inline: true,
 	historyApiFallback: true,
-	hot: true,
 	headers: {'Access-Control-Allow-Origin': '*'},
 	stats: {
 		color: true

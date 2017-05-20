@@ -35,6 +35,13 @@ export class ListService {
             .catch(this.handleError);
     }
 
+    filteredSkills(filterId: number): Observable<any> {
+        let updateUrl = `${this.skillsUrl}/filter/${filterId}`;
+        return this.http.get(updateUrl)
+            .map(response => response.json() as Skill[])
+            .catch(this.handleError);
+    }
+
     private success(): Observable<any> {
         return Observable.create();
     }

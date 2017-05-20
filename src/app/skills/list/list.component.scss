@@ -6,6 +6,7 @@
 .card {
   width: 100%;
   margin: 5px 0;
+  box-sizing: border-box;
   &__title{
     font: bold 30px Roboto,"Helvetica Neue",sans-serif;
     margin: 0;

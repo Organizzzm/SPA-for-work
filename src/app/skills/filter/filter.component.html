@@ -1,7 +1,20 @@
 <div class="filter-container">
-    <md-select placeholder="Filter" class="filter">
-        <md-option *ngFor="let filter of filters">
-            {{ filter }}
-        </md-option>
-    </md-select>
+    <md-input-container>
+        <input mdInput
+               [mdDatepicker]="picker"
+               placeholder="Filter by date"
+               [(ngModel)]="date"
+               name="date"
+        >
+        <button mdSuffix
+                [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
+
+    <button
+            class="filter-btn"
+            md-raised-button
+            (click)="filterSkills(date)"
+            [disabled]="!date">Filter
+    </button>
 </div>

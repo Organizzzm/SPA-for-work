@@ -3,7 +3,7 @@ const Skill = require('mongoose').model('Skill');
 module.exports = {
 	addSkill: (req, res, next) => {
 		const skill = new Skill(req.body);
-console.log(skill);
+
 		skill.save(function (err, skill) {
 			if (err) return console.error(err);
 			else {
@@ -33,5 +33,19 @@ console.log(skill);
 				throw err;
 			}
 		});
+	},
+	filterSkills: (req, res, next) => {
+		const time = req.params.id;
+
+		Skill.find({ date: time }, function (err, skills) {
+			if (!err) {
+				res.send(skills);
+				next();
+			} else {
+				throw err;
+			}
+		});
+
+
 	}
 };

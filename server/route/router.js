@@ -1,6 +1,6 @@
 const skillsController = require('../controllers/skills.controller');
 
-module.exports = function (app, __dirname) {
+module.exports = function (app) {
 	/**
 	 * Render static file
 	 */
@@ -14,4 +14,6 @@ module.exports = function (app, __dirname) {
 	app.get('/api.v=0.1/skills', skillsController.getSkills);
 	app.post('/api.v=0.1/skills', skillsController.addSkill);
 	app.delete('/api.v=0.1/skills/:id', skillsController.deleteSkill);
+
+	app.get('/api.v=0.1/skills/filter/:id', skillsController.filterSkills);
 };
