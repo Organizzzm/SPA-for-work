@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { Skill } from "../../shared/model/skill";
+import { Skill } from '../../shared/model/skill';
 
-import { ListService } from '../../shared/service/skills.service';
+import { SkillsService } from '../../shared/service/skills.service';
 
 @Component({
     selector: 'skills-list',
@@ -13,11 +13,11 @@ import { ListService } from '../../shared/service/skills.service';
 export class ListComponent {
     @Input() list: Skill[];
 
-    constructor(private listService: ListService) {
+    constructor(private skillsService: SkillsService) {
     }
 
     removeSkill(skill: Skill) {
-        this.listService.deleteSkill(skill)
+        this.skillsService.deleteSkill(skill)
             .subscribe(
                 () => this.removeSkillFromList(skill),
                 error => console.log(error)

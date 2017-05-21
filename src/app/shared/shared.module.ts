@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { PieChartDirective } from './directive/pie-chart.directive';
 
-import { ListService } from './service/skills.service';
+import { SkillsService } from './service/skills.service';
 
 import {
     MdInputModule,
@@ -44,7 +44,7 @@ import {
         PieChartDirective
     ],
     providers: [
-        ListService
+        SkillsService
     ],
 })
 

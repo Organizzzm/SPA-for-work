@@ -1,8 +1,8 @@
 import { Component, Input, ViewChild } from '@angular/core';
 
-import { ListService } from '../../shared/service/skills.service';
+import { SkillsService } from '../../shared/service/skills.service';
 
-import { Skill } from "../../shared/model/skill";
+import { Skill } from '../../shared/model/skill';
 
 @Component({
     selector: 'statistic-form',
@@ -14,17 +14,17 @@ export class StatisticFromComponent {
     @Input() list: Skill[];
     @ViewChild('technologyForm') tForm: any;
 
-    constructor(private listService: ListService) {
+    constructor(private skillsService: SkillsService) {
     }
 
     saveSkill(skill: Skill) {
         skill.date = new Date(skill.date).getTime();
 
-        this.listService.insertSkill(skill)
+        this.skillsService.insertSkill(skill)
             .subscribe(
                 insertedSkill => {
                     this.list.push(insertedSkill);
-                    this.tForm.reset();
+                    this.tForm.resetForm();
                 },
                 error => console.log(error)
             );

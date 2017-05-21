@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import { Skill } from '../model/skill';
 
 @Injectable()
-export class ListService {
+export class SkillsService {
     private headers = new Headers({'Content-Type': 'application/json'});
     private skillsUrl = '/api.v=0.1/skills';
 
