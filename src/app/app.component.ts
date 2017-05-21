@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import '../assets/styles/entry.scss';
 
-import { ListService } from './shared/service/skills.service';
+import { SkillsService } from './shared/service/skills.service';
 
 import { Skill } from './shared/model/skill';
 
@@ -14,11 +14,11 @@ import { Skill } from './shared/model/skill';
 export class AppComponent implements OnInit {
     list: Skill[] = [];
 
-    constructor(private listService: ListService) {
+    constructor(private skillsService: SkillsService) {
     }
 
     ngOnInit() {
-        this.listService.getSkills()
+        this.skillsService.getSkills()
             .subscribe(
                 skills => this.list = skills,
                 error => console.log(<any>error)

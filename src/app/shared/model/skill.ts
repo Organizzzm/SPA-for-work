@@ -1,6 +1,12 @@
+/**
+ * TODO: need think about date type
+ */
 export class Skill {
-    _id: number;
-    technology: string;
-    date: number;
-    skills: number;
+    constructor(
+        public _id: number,
+        public technology: string,
+        public date: number,
+        public skills: number
+    ) {}
 }
+

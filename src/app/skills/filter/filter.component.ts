@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { Skill } from "../../shared/model/skill";
+import { Skill } from '../../shared/model/skill';
 
-import { ListService } from '../../shared/service/skills.service';
+import { SkillsService } from '../../shared/service/skills.service';
 
 @Component({
     selector: 'skills-filter',
@@ -13,14 +13,25 @@ import { ListService } from '../../shared/service/skills.service';
 export class FilterComponent {
     @Input() list: Skill[];
 
-    constructor(private listService: ListService) {
+    date: string;
+
+    constructor(private skillsService: SkillsService) {
     }
 
     filterSkills(date: string) {
-        this.listService.filteredSkills(Date.parse(date))
+        this.skillsService.filteredSkills(Date.parse(date))
             .subscribe(
                 skillsList => this.setSkillsToList(skillsList),
                 error => console.log(error)
+            );
+    }
+
+    resetFilter() {
+        this.date = '';
+        this.skillsService.getSkills()
+            .subscribe(
+                skillsList => this.setSkillsToList(skillsList),
+                error => console.log(<any>error)
             );
     }
 

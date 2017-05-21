@@ -5,6 +5,7 @@
                placeholder="Filter by date"
                [(ngModel)]="date"
                name="date"
+               (change)="changeF()"
         >
         <button mdSuffix
                 [mdDatepickerToggle]="picker"></button>
@@ -16,5 +17,11 @@
             md-raised-button
             (click)="filterSkills(date)"
             [disabled]="!date">Filter
+    </button>
+    <button
+            class="clear-filter-btn"
+            md-raised-button
+            (click)="resetFilter()"
+            [disabled]="!date">Reset
     </button>
 </div>
